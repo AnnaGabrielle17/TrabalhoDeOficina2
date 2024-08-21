@@ -29,6 +29,7 @@ public class Apple : MonoBehaviour
             collected.SetActive(true);
 
             GameContoller.instance.totalScore += Score;
+            GameContoller.instance.UpdateScoreText();
             
             Destroy(gameObject, 0.25f);
         }

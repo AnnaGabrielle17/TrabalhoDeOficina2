@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameContoller : MonoBehaviour
 {
 
     public int totalScore;
+    public Text scoreText;
+
+   
 
     public static GameContoller instance;
     // Start is called before the first frame update
@@ -14,6 +19,8 @@ public class GameContoller : MonoBehaviour
         instance = this;
     }
 
-    // Update is called once per frame
-   
+    public void UpdateScoreText()
+    {
+        scoreText.text = totalScore.ToString();
+    }
 }
