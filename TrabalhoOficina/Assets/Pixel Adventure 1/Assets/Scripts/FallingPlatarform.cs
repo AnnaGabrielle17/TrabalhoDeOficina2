@@ -10,6 +10,7 @@ public class FallingPlatarfom : MonoBehaviour
     private TargetJoint2D target;
 
     private BoxCollider2D boxColl;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +22,24 @@ public class FallingPlatarfom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
-        }
-}
+            Invoke("Falling", fallingTime);
 
-    void Falling()
-    {
-        target.enabled = false;
-        boxColl.isTrigger = true;
+        }
+
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.layer == 9)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        void Falling()
+        {
+            target.enabled = false;
+            boxColl.isTrigger = true;
+        }
     }

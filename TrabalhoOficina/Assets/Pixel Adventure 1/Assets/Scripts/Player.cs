@@ -80,6 +80,12 @@ void Jump()
             isJumping = false;
             anim.SetBool("jump", false);
         }
+        
+        if (collision.gameObject.tag == "Spike")
+        {
+            GameContoller.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
 
         void OnCollisionExit2D(Collision2D collision)
         {

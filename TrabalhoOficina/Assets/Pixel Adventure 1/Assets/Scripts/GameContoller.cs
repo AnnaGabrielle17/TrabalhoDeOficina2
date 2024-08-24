@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class GameContoller : MonoBehaviour
 {
 
     public int totalScore;
     public Text scoreText;
+
+    public GameObject gameOver;
 
    
 
@@ -22,5 +24,15 @@ public class GameContoller : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = totalScore.ToString();
+    }
+
+    public void ShowGameOver()
+    {
+        gameOver.SetActive(true);
+    }
+
+    public void RestartGame(string lvlName)
+    {
+        SceneManager.LoadScene(lvlName);
     }
 }
